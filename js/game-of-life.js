@@ -2,10 +2,9 @@ var GameOfLife = (function(){
 
   var liveCellsRatio = 0.1;
 
-  return function(width, height, liveCellsRatio){
+  return function(width, height){
     this.width = width;
     this.height = height;
-    this.liveCellsRatio = liveCellsRatio;
     this.currentGeneration = currentGeneration;
     this.nextGeneration = nextGeneration;
   }
