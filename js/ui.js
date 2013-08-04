@@ -1,5 +1,7 @@
 (function($){
 
+  "use strict";
+  
   var canvas, context;
   var width, height;
   var game;

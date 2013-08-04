@@ -1,5 +1,7 @@
 var GameOfLife = (function(){
 
+  "use strict";
+
   var liveCellsRatio = 0.1;//cells alive in the 1st random generation
   var currentGeneration;
   var width;
@@ -26,8 +28,8 @@ var GameOfLife = (function(){
     var isCellAlive;
 
     for(i= 0; i < width; i++){
+      result[i] = [];
       for(j= 0; j < height; j++){
-        result[i] = result[i] || [];
         liveCells = liveCellsAround(i,j);
         isCellAlive = currentGeneration[i][j];
         if(isCellAlive){
@@ -46,7 +48,7 @@ var GameOfLife = (function(){
   function randomize(){
     return currentGeneration = randomGrid(width, height);
   }
-  
+
   function toggleCell(x, y){
     if(typeof currentGeneration[x] !== 'undefined' 
       && typeof currentGeneration[x][y] !== 'undefined'){
@@ -109,7 +111,7 @@ var GameOfLife = (function(){
     if(value < lowerBound){
       return upperBound
     }
-    else if(value > upperBound){
+    if(value > upperBound){
       return lowerBound;
     }
     return value;
