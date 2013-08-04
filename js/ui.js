@@ -13,6 +13,7 @@
     canvas = $("#canvas");
     context = canvas.get(0).getContext("2d");
     stretchCanvas();
+    $(window).resize(stretchCanvas);
     game = new GameOfLife(gridWidth(), gridHeight());
     draw(game.getCurrentGeneration());
     setInterval(redraw, REFRESH_INTERVAL);
