@@ -6,7 +6,7 @@
   var SPACING = 1;
   var REFRESH_INTERVAL = 200;
   var DEAD_CELL_COLOR = "rgba(255, 255, 255, .5)";
-  var LIVE_CELL_COLOR = "rgba(255, 255, 0, .5)";
+  var LIVE_CELL_COLOR = "rgba(150, 255, 0, .5)";
   var game;
 
   function init(){
