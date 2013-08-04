@@ -2,9 +2,9 @@
 
   var canvas, context;
   var width, height;
-  var CELL_SIZE = 20;
-  var SPACING = 2;
-  var REFRESH_INTERVAL = 500;
+  var CELL_SIZE = 15;
+  var SPACING = 1;
+  var REFRESH_INTERVAL = 200;
   var DEAD_CELL_COLOR = "rgba(255, 255, 255, .5)";
   var LIVE_CELL_COLOR = "rgba(255, 255, 0, .5)";
   var game;
@@ -14,7 +14,7 @@
     context = canvas.get(0).getContext("2d");
     stretchCanvas();
     game = new GameOfLife(gridWidth(), gridHeight());
-    draw(game.currentGeneration());
+    draw(game.getCurrentGeneration());
     setInterval(redraw, REFRESH_INTERVAL);
   }
 
@@ -26,7 +26,7 @@
   }
 
   function redraw(){
-    draw(game.nextGeneration());
+    draw(game.getNextGeneration());
   }
 
   function draw(grid){
