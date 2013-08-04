@@ -1,6 +1,6 @@
 var GameOfLife = (function(){
 
-  var liveCellsRatio = 0.1;
+  var liveCellsRatio = 0.1;//cells alive in the 1st random generation
   var currentGeneration;
   var width;
   var height;
@@ -8,7 +8,9 @@ var GameOfLife = (function(){
   return function(gridWidth, gridHeight){
     this.getCurrentGeneration = getCurrentGeneration;
     this.getNextGeneration = getNextGeneration;
-    currentGeneration = randomGrid(gridWidth, gridHeight);
+    this.randomize = randomize;
+    this.toggleCell = toggleCell;
+    currentGeneration = emptyGrid(gridWidth, gridHeight);
     width = gridWidth;
     height = gridHeight;
   }
@@ -41,16 +43,42 @@ var GameOfLife = (function(){
     return result;
   }
 
+  function randomize(){
+    return currentGeneration = randomGrid(width, height);
+  }
+  
+  function toggleCell(x, y){
+    if(typeof currentGeneration[x] !== 'undefined' 
+      && typeof currentGeneration[x][y] !== 'undefined'){
+      currentGeneration[x][y] = !currentGeneration[x][y];
+    }
+  }
+
   function randomGrid(w, h){
     var random;
     var result = [];
     var i, j;
 
     for(i= 0; i < w; i++){
+      result[i] = [];
       for(j= 0; j < h; j++){
         random = Math.random();
-        result[i] = result[i] || [];
         result[i][j] = random < liveCellsRatio;
+      }
+    }
+
+    return result;
+  }
+
+  function emptyGrid(w, h){
+    var random;
+    var result = [];
+    var i, j;
+
+    for(i= 0; i < w; i++){
+      result[i] = [];
+      for(j= 0; j < h; j++){
+        result[i][j] = false;
       }
     }
 
