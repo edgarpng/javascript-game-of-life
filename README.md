@@ -1,6 +1,11 @@
-javascript-game-of-life
+Javascript Game of Life
 =======================
 
-A JavaScript implementation of Conway's game of life. Starts with a random initial configuration for now.
+An implementation of Conway's game of life in JavaScript and the canvas element.
 
-Demo URL pending.
+###Features
+- Start the game with random initial configuration
+- Customize initial configuration to try cool patterns such as the _Glider Gun_ and more
+
+###Demo
+Check out the demo [here](http://js-game-of-life.herokuapp.com/)
